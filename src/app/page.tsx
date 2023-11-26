@@ -1,113 +1,319 @@
-import Image from 'next/image'
+import Link from "next/link";
+import Image from "next/image";
 
-export default function Home() {
+import Header from "@components/header";
+import Footer from "@components/footer";
+import PageEnd from "@components/page-end";
+import Card from "@components/card";
+
+export default function page() {
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24">
-      <div className="z-10 max-w-5xl w-full items-center justify-between font-mono text-sm lg:flex">
-        <p className="fixed left-0 top-0 flex w-full justify-center border-b border-gray-300 bg-gradient-to-b from-zinc-200 pb-6 pt-8 backdrop-blur-2xl dark:border-neutral-800 dark:bg-zinc-800/30 dark:from-inherit lg:static lg:w-auto  lg:rounded-xl lg:border lg:bg-gray-200 lg:p-4 lg:dark:bg-zinc-800/30">
-          Get started by editing&nbsp;
-          <code className="font-mono font-bold">src/app/page.tsx</code>
-        </p>
-        <div className="fixed bottom-0 left-0 flex h-48 w-full items-end justify-center bg-gradient-to-t from-white via-white dark:from-black dark:via-black lg:static lg:h-auto lg:w-auto lg:bg-none">
-          <a
-            className="pointer-events-none flex place-items-center gap-2 p-8 lg:pointer-events-auto lg:p-0"
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            By{' '}
-            <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              className="dark:invert"
-              width={100}
-              height={24}
-              priority
-            />
-          </a>
+    <div>
+      <div className="sticky top-0 z-20">
+        <Header />
+      </div>
+      <div className="">
+        <video
+          autoPlay
+          loop
+          muted
+          className="z-0 absolute top-0 object-cover h-screen w-screen opacity-50"
+        >
+          <source src="/videos/landingpage-video.mp4" type="video/mp4" />
+        </video>
+        <div
+          className="h-screen top-0 left-0 right-0 bottom-0 mx-4 xl:mx-6"
+          style={{
+            height: "calc(100vh - 5rem)",
+          }}
+        >
+          <div className="w-4/6 absolute bottom-14 md:bottom-28 left-0 right-0 xl:mx-auto">
+            {/* <h1 className="text-[3.4375rem] xl:text-[4.5625rem] leading-none"> */}
+            <h1 className="text-[2.625rem] md:text-[3.4375rem] xl:text-[4.2rem] leading-none">
+              Creating safe AGI that benefits all of humanity
+            </h1>
+            <div className="inline-block mt-[3.750rem] pt-[3px] pb-[5px] px-[10px] border-[1px] rounded-[.2rem] hover:bg-white hover:text-black ">
+              <Link href="/about" className="whitespace-nowrap">
+                Learn about OpenAI
+              </Link>
+            </div>
+          </div>
         </div>
       </div>
+      <div className="mx-6 ">
+        <div className="py-[5.25rem] ">
+          <ul className="flex flex-row flex-wrap">
+            <li className="w-full sm:w-1/2 md:w-1/2 xl:w-1/3 mt-[2.25rem] md:mt-[3rem] md:pr-16">
+              <Link href="/research/overview">
+                <div>
+                  <h2 className="underline decoration-transparent underline-offset-1 text-[1.3125rem] md:text-[1.5rem] xl:text-[1.75rem] leading-[130%] md:leading-[120%] font-bold">
+                    Pioneering research on the path to AGI
+                  </h2>
+                  <div className="mt-[.25rem] xl:mt-[.75rem]">
+                    <span className="underline underline-offset-4 ">
+                      Learn about our research
+                    </span>
+                  </div>
+                </div>
+              </Link>
+            </li>
+            <li className="w-full sm:w-1/2 md:w-1/2 xl:w-1/3 mt-[2.25rem] md:mt-[3rem] md:pr-16 ">
+              <Link href="/products">
+                <div>
+                  <h2 className="underline decoration-transparent underline-offset-1 text-[1.3125rem] md:text-[1.5rem] xl:text-[1.75rem] leading-[130%] md:leading-[120%] font-bold">
+                    Transforming work and creativity with AI
+                  </h2>
+                  <div className="mt-[.25rem] xl:mt-[.75rem]">
+                    <span className="underline underline-offset-4 mt-[0.25rem] xl:mt-[0.75rem]">
+                      Explore our products
+                    </span>
+                  </div>
+                </div>
+              </Link>
+            </li>
+            <li className="w-full sm:w-1/2 md:w-1/2 xl:w-1/3 mt-[2.25rem] md:mt-[3rem] md:pr-16">
+              <Link href="/careers">
+                <div>
+                  <h2 className="underline decoration-transparent underline-offset-1 text-[1.3125rem] md:text-[1.5rem] xl:text-[1.75rem] leading-[130%] md:leading-[120%] font-bold">
+                    Join us in shaping the future of technology
+                  </h2>
+                  <div className="mt-[.25rem] xl:mt-[.75rem]">
+                    <span className="underline underline-offset-4 mt-[.25rem] xl:mt-[.75rem]">
+                      View careers
+                    </span>
+                  </div>
+                </div>
+              </Link>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div className="mx-4 xl:mx-6 pb-[4.5rem] md:pb-[3rem] xl:pb-[6rem] ">
+        <div className="border-t-[.5px] pt-[.75rem] xl:pt-[.75rem] flex flex-row">
+          <div>
+            <h2 className="text-[1.75rem] leading-[110%] font-normal tracking-[-.01em] md:text-[2.25rem] xl:text-[3rem] xl:tracking-[-.02em]">
+              Latest updates
+            </h2>
+          </div>
+          <div className="ml-auto">
+            <Link href="/blog">
+              <div className="text-[1rem] xl:text-[1.125rem] underline underline-offset-4">
+                View all updates
+              </div>
+            </Link>
+          </div>
+        </div>
+        <div className="flex flex-row flex-wrap justify-between">
+          <Card
+            title="OpenAI announces leadership transition"
+            link="/blog/openai-announces-leadership-transition"
+            image="/images/latest-updates/latest-updates-leadership-transition.webp"
+            date="Nov 17, 2023"
+          />
+          <Card
+            title="OpenAI Data Partnerships"
+            link="/blog/openai-data-partnerships"
+            image="/images/latest-updates/latest-updates-data-partnerships.webp"
+            date="Nov 9, 2023"
+          />
+          <Card
+            title="Introducing GPTs"
+            link="/blog/introducing-gpts"
+            image="/images/latest-updates/latest-updates-introducing-gpts.webp"
+            date="Nov 6, 2023"
+          />
 
-      <div className="relative flex place-items-center before:absolute before:h-[300px] before:w-[480px] before:-translate-x-1/2 before:rounded-full before:bg-gradient-radial before:from-white before:to-transparent before:blur-2xl before:content-[''] after:absolute after:-z-20 after:h-[180px] after:w-[240px] after:translate-x-1/3 after:bg-gradient-conic after:from-sky-200 after:via-blue-200 after:blur-2xl after:content-[''] before:dark:bg-gradient-to-br before:dark:from-transparent before:dark:to-blue-700 before:dark:opacity-10 after:dark:from-sky-900 after:dark:via-[#0141ff] after:dark:opacity-40 before:lg:h-[360px] z-[-1]">
+          <Card
+            title="New Models And Developer Products Announced At DevDay"
+            link="/blog/new-models-and-developer-products-announced-at-devday"
+            image="/images/latest-updates/latest-updates-new-models-and-developer-products-announced-at-devday.webp"
+            date="Nov 6, 2023"
+          />
+        </div>
+      </div>
+      <div className="pb-[4.5rem] md:pb-[3rem] xl:pb-[6rem] ">
+        <div className="mx-4 xl:mx-6 pb-[4.5rem] md:pb-[3rem] xl:pb-[6rem]  md:grid md:grid-cols-2 border-t-[.5px] pt-[.75rem] xl:pt-[.75rem]">
+          <div className="">
+            <h2 className="text-[1.75rem] leading-[110%] font-normal tracking-[-.01em] md:text-[2.25rem] xl:text-[3rem] xl:tracking-[-.02em]">
+              Safety & responibility
+            </h2>
+          </div>
+          <div className="flex flex-col mt-4">
+            <p className="leading-[130%] md:leading-[120%] tracking-[-0.01em] text-[1.3125rem] md:text[1.5rem] xl:text-[1.75rem] ">
+              Our work to create safe and beneficial AI requires a deep
+              understanding of the potential risks and benefits, as well as
+              careful consideration of the impact.
+            </p>
+            <Link href="/safety">
+              <div className="mt-[1rem] xl:mt[1.5rem] leading-[130%] tracking-normal text-[1rem] xl:text-[1.125rem] underline underline-offset-4">
+                Learn about safety
+              </div>
+            </Link>
+          </div>
+        </div>
         <Image
-          className="relative dark:drop-shadow-[0_0_0.3rem_#ffffff70] dark:invert"
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
+          src="/images/safety/safety.webp"
+          alt="Safety"
+          width={2000}
+          height={1500}
+          className="object-cover"
         />
       </div>
-
-      <div className="mb-32 grid text-center lg:max-w-5xl lg:w-full lg:mb-0 lg:grid-cols-4 lg:text-left">
-        <a
-          href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Docs{' '}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Find in-depth information about Next.js features and API.
-          </p>
-        </a>
-
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Learn{' '}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Learn about Next.js in an interactive course with&nbsp;quizzes!
-          </p>
-        </a>
-
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Templates{' '}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Explore starter templates for Next.js.
-          </p>
-        </a>
-
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Deploy{' '}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
-          </p>
-        </a>
+      <div className="mx-4 xl:mx-6 pb-[4.5rem] md:pb-[3rem] xl:pb-[6rem] ">
+        <div className="pb-[4.5rem] md:pb-[3rem] xl:pb-[6rem] md:grid md:grid-cols-2 border-t-[.5px] pt-[.75rem] xl:pt-[.75rem]">
+          <div className="">
+            <h2 className="text-[1.75rem] leading-[110%] font-normal tracking-[-.01em] md:text-[2.25rem] xl:text-[3rem] xl:tracking-[-.02em]">
+              Research
+            </h2>
+          </div>
+          <div className="flex flex-col mt-4">
+            <p className="leading-[130%] md:leading-[120%] tracking-[-0.01em] text-[1.3125rem] md:text[1.5rem] xl:text-[1.75rem] ">
+              We research generative models and how to align them with human
+              values.
+            </p>
+            <Link href="/research/overview">
+              <div className="mt-[1rem] xl:mt[1.5rem] leading-[130%] tracking-normal text-[1rem] xl:text-[1.125rem] underline underline-offset-4">
+                Learn about our research
+              </div>
+            </Link>
+          </div>
+        </div>
+        <div className="flex flex-row flex-wrap justify-between">
+          <Card
+            title="DALL·E 3 system card"
+            link="/research/dall-e-3-system-card"
+            image="/images/research/dall-e-3-system-card.webp"
+            date="Oct 3, 2023"
+          />
+          <Card
+            title="GPT-4V(ision) system card"
+            link="/research/gpt-4-vision-system-card"
+            image="/images/research/gpt-4vision-system-card.webp"
+            date="Sep 25, 2023"
+          />
+          <Card
+            title="Confidence-Building Measures for Artificial Intelligence: Workshop proceedings"
+            link="/research/confidence-building-measures-for-artificial-intelligence-workshop-proceedings"
+            image="/images/research/confidence-building-measures-for-artificial-intelligence-workshop-proceedings.webp"
+            date="Aug 1, 2023"
+          />
+          <Card
+            title="Frontier AI regulation: Managing emerging risks to public safety"
+            link="/research/frontier-ai-regulation-managing-emerging-risks-to-public-safety"
+            image="/images/research/frontier-ai-regulation-managing-emerging-risks-to-public-safety.webp"
+            date="Jul 6, 2023"
+          />
+        </div>
       </div>
-    </main>
-  )
+      <div className="mx-4 xl:mx-6 pb-[4.5rem] md:pb-[3rem] xl:pb-[6rem] ">
+        <div className="pb-[4.5rem] md:pb-[3rem] xl:pb-[6rem] xl:grid xl:grid-cols-2 border-t-[.5px] pt-[.75rem] xl:pt-[.75rem]">
+          <div className="">
+            <h2 className="text-[1.75rem] leading-[110%] font-normal tracking-[-.01em] md:text-[2.25rem] xl:text-[3rem] xl:tracking-[-.02em]">
+              Products
+            </h2>
+          </div>
+          <div className="flex flex-col mt-4">
+            <p className="leading-[130%] md:leading-[120%] tracking-[-0.01em] text-[1.3125rem] md:text[1.5rem] xl:text-[1.75rem] ">
+              Our API platform offers our latest models and guides for safety
+              best practices.
+            </p>
+            <Link href="/research/overview">
+              <div className="mt-[1rem] xl:mt[1.5rem] leading-[130%] tracking-normal text-[1rem] xl:text-[1.125rem] underline underline-offset-4">
+                Explore our products
+              </div>
+            </Link>
+          </div>
+        </div>
+        <div className="flex flex-row flex-wrap justify-between">
+          <Card
+            title="DALL·E 3 system card"
+            link="/research/dall-e-3-system-card"
+            image="/images/research/dall-e-3-system-card.webp"
+            date="Oct 3, 2023"
+          />
+          <Card
+            title="GPT-4V(ision) system card"
+            link="/research/gpt-4-vision-system-card"
+            image="/images/research/gpt-4vision-system-card.webp"
+            date="Sep 25, 2023"
+          />
+          <Card
+            title="Confidence-Building Measures for Artificial Intelligence: Workshop proceedings"
+            link="/research/confidence-building-measures-for-artificial-intelligence-workshop-proceedings"
+            image="/images/research/confidence-building-measures-for-artificial-intelligence-workshop-proceedings.webp"
+            date="Aug 1, 2023"
+          />
+          <Card
+            title="Frontier AI regulation: Managing emerging risks to public safety"
+            link="/research/frontier-ai-regulation-managing-emerging-risks-to-public-safety"
+            image="/images/research/frontier-ai-regulation-managing-emerging-risks-to-public-safety.webp"
+            date="Jul 6, 2023"
+          />
+        </div>
+      </div>
+      <div className="pb-[4.5rem] md:pb-[3rem] xl:pb-[6rem] ">
+        <div className="mx-4 xl:mx-6 pb-[4.5rem] md:pb-[3rem] xl:pb-[6rem] xl:grid xl:grid-cols-2 border-t-[.5px] pt-[.75rem] xl:pt-[.75rem]">
+          <div className="">
+            <h2 className="text-[1.75rem] leading-[110%] font-normal tracking-[-.01em] md:text-[2.25rem] xl:text-[3rem] xl:tracking-[-.02em]">
+              Careers at OpenAI
+            </h2>
+          </div>
+          <div className="flex flex-col mt-4">
+            <p className="leading-[130%] md:leading-[120%] tracking-[-0.01em] text-[1.3125rem] md:text[1.5rem] xl:text-[1.75rem] ">
+              Developing safe and beneficial AI requires people from a wide
+              range of disciplines and backgrounds.
+            </p>
+            <Link href="/careers">
+              <div className="mt-[1rem] xl:mt[1.5rem] leading-[130%] tracking-normal text-[1rem] xl:text-[1.125rem] underline underline-offset-4">
+                View careers
+              </div>
+            </Link>
+          </div>
+        </div>
+        <Image
+          src="/images/careers/careers.webp"
+          alt="Careers"
+          width={2000}
+          height={1500}
+          className="object-cover pb-[4.5rem] md:pb-[3rem] xl:pb-[6rem] "
+        />
+        <div className="mx-4 xl:mx-6 pb-[4.5rem] md:pb-[3rem] xl:pb-[6rem] xl:grid xl:grid-cols-2 border-t-[.5px] pt-[.75rem] xl:pt-[.75rem]">
+          <figure className="relative lg:pl-6">
+            <blockquote className="text-[1.75rem] leading-[110%] font-normal tracking-[-.01em] md:text-[2.25rem] xl:text-[3rem] xl:tracking-[-.02em]">
+              <p>
+                <span className="after:content-['”'] before:absolute before:left-0 before:content-['“']">
+                  I encourage my team to keep learning. Ideas in different
+                  topics or fields can often inspire new ideas and broaden the
+                  potential solution space.
+                </span>
+              </p>
+              <figcaption className="mt-[1rem] xl:mt[1.5rem]">
+                <span className="block font-semibold leading-[130%] tracking-normal text-[1rem] xl:text-[1.125rem]">
+                  Lilian Weng
+                </span>
+                <span className="block leading-[130%] tracking-normal text-[1rem] xl:text-[1.125rem]">
+                  Applied AI at OpenAI
+                </span>
+              </figcaption>
+            </blockquote>
+          </figure>
+          <div className="mt-[8px] md:mt-[10px] md:ml-4">
+            <Image
+              src="/images/careers/lillian-weng.webp"
+              alt="Lillian Weng"
+              width={2841}
+              height={2840}
+              className="object-cover"
+            />
+          </div>
+        </div>
+      </div>
+      <div className="z-10">
+        <Footer />
+      </div>
+      <div className="z-0">
+        <PageEnd />
+      </div>
+    </div>
+  );
 }
