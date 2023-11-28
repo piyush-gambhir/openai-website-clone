@@ -28,7 +28,7 @@ export default function Header() {
     <header
       className={`${
         scrolled ? "bg-black" : "bg-transparent"
-      } py-[1.375rem] text-white transition duration-300 text-[17px]`}
+      } py-[1rem] md:py-[1.375rem] text-white transition duration-300 text-[17px]`}
     >
       <div className="flex flex-row items-center justify-between mx-6">
         <Link href={"/"} className="w-1/6">

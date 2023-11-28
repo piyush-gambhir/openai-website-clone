@@ -1,12 +1,29 @@
+"use client";
 import Link from "next/link";
 import Image from "next/image";
+import { useState, useRef } from "react";
 
 import Header from "@components/header";
 import Footer from "@components/footer";
 import PageEnd from "@components/page-end";
 import Card from "@components/card";
+import CustomIcon from "@/components/custom-icons";
 
-export default function page() {
+export default function Page() {
+  const [playLandingPageVideo, setPlayLandingPageVideo] = useState(true);
+  const landingPageVideoRef = useRef(null);
+
+  const togglePlayPauseLandingPageVideo = () => {
+    const video = landingPageVideoRef.current;
+    if (video.paused) {
+      video.play();
+    } else {
+      video.pause();
+    }
+
+    setPlayLandingPageVideo(!playLandingPageVideo);
+  };
+
   return (
     <div>
       <div className="sticky top-0 z-20">
@@ -14,6 +31,7 @@ export default function page() {
       </div>
       <div className="">
         <video
+          ref={landingPageVideoRef}
           autoPlay
           loop
           muted
@@ -21,13 +39,31 @@ export default function page() {
         >
           <source src="/videos/landingpage-video.mp4" type="video/mp4" />
         </video>
+        <div className="cursor-pointer absolute right-4 md:right-6 bottom-4 md:bottom-6 bg-black min-w-[2.75rem] min-h-[2.75rem] md:pt-[8px] pt-[.5625rem] pb-[.625rem] md:pb-[10px] px=[8px] md:px-[16px] rounded-[.2rem] flex items-center justify-center">
+          <button
+            className="justify-center items-center"
+            onClick={togglePlayPauseLandingPageVideo}
+          >
+            <div className="flex flex-row items-center justify-center">
+              <span className="">
+                <CustomIcon
+                  iconName={playLandingPageVideo ? "pause" : "play"}
+                  className="text-[1rem] xl:text-[1.125rem] leading-[130%] tracking-normal"
+                />
+              </span>
+              <span className="ml-[0.5rem] hidden md:inline text-[1rem] xl:text-[1.125rem] leading-[130%] tracking-normal">
+                {playLandingPageVideo ? "Pause video" : "Play video"}
+              </span>
+            </div>
+          </button>
+        </div>
         <div
           className="h-screen top-0 left-0 right-0 bottom-0 mx-4 xl:mx-6"
           style={{
             height: "calc(100vh - 5rem)",
           }}
         >
-          <div className="w-4/6 absolute bottom-14 md:bottom-28 left-0 right-0 xl:mx-auto">
+          <div className="w-4/6 absolute bottom-[14px] md:bottom-[24px] left-0 right-0 mx-4 md:mx-auto">
             {/* <h1 className="text-[3.4375rem] xl:text-[4.5625rem] leading-none"> */}
             <h1 className="text-[2.625rem] md:text-[3.4375rem] xl:text-[4.2rem] leading-none">
               Creating safe AGI that benefits all of humanity
@@ -89,13 +125,11 @@ export default function page() {
         </div>
       </div>
       <div className="mx-4 xl:mx-6 pb-[4.5rem] md:pb-[3rem] xl:pb-[6rem] ">
-        <div className="border-t-[.5px] pt-[.75rem] xl:pt-[.75rem] flex flex-row">
-          <div>
-            <h2 className="text-[1.75rem] leading-[110%] font-normal tracking-[-.01em] md:text-[2.25rem] xl:text-[3rem] xl:tracking-[-.02em]">
-              Latest updates
-            </h2>
-          </div>
-          <div className="ml-auto">
+        <div className="border-t-[.5px] pt-[.75rem] xl:pt-[.75rem] flex flex-col md:flex-row ">
+          <h2 className="text-[1.75rem] leading-[110%] font-normal tracking-[-.01em] md:text-[2.25rem] xl:text-[3rem] xl:tracking-[-.02em]">
+            Latest updates
+          </h2>
+          <div className="md:ml-auto mt-[.75rem] md:mt-0">
             <Link href="/blog">
               <div className="text-[1rem] xl:text-[1.125rem] underline underline-offset-4">
                 View all updates
@@ -103,7 +137,7 @@ export default function page() {
             </Link>
           </div>
         </div>
-        <div className="flex flex-row flex-wrap justify-between">
+        <div className="grid grid-flow-col md:grid-rows-2 xl:grid-rows-1 gap-6">
           <Card
             title="OpenAI announces leadership transition"
             link="/blog/openai-announces-leadership-transition"
@@ -178,7 +212,7 @@ export default function page() {
             </Link>
           </div>
         </div>
-        <div className="flex flex-row flex-wrap justify-between">
+        <div className="grid grid-flow-col md:grid-rows-2 xl:grid-rows-1 gap-4">
           <Card
             title="DALL·E 3 system card"
             link="/research/dall-e-3-system-card"
@@ -224,30 +258,30 @@ export default function page() {
             </Link>
           </div>
         </div>
-        <div className="flex flex-row flex-wrap justify-between">
+        <div className="grid grid-flow-col md:grid-rows-2 xl:grid-rows-1 gap-4">
           <Card
-            title="DALL·E 3 system card"
-            link="/research/dall-e-3-system-card"
-            image="/images/research/dall-e-3-system-card.webp"
-            date="Oct 3, 2023"
+            title="Introduction to GPTs"
+            link="/products/introduction-to-gpts"
+            image="/images/products/introduction-to-gpts.webp"
+            date="Nov 6, 2023"
           />
           <Card
-            title="GPT-4V(ision) system card"
-            link="/research/gpt-4-vision-system-card"
-            image="/images/research/gpt-4vision-system-card.webp"
+            title="New models and developer products announced at DevDay"
+            link="/products/new-models-and-developer-products-announced-at-devday"
+            image="/images/products/new-models-and-developer-products-announced-at-devday.webp"
+            date="Nov 6, 2023"
+          />
+          <Card
+            title="DALL·E 3 is now available in ChatGPT Plus and Enterprise"
+            link="/products/dall-e-3-is-now-available-in-chatgpt-plus-and-enterprise"
+            image="/images/products/dall-e-3-is-now-available-in-chatgpt-plus-and-enterprise.webp"
+            date="Oct 19, 2023"
+          />
+          <Card
+            title="ChatGPT can now see, hear, and speak"
+            link="/products/chatgpt-can-now-see-hear-and-speak"
+            image="/images/products/chatgpt-can-now-see-hear-and-speak.webp"
             date="Sep 25, 2023"
-          />
-          <Card
-            title="Confidence-Building Measures for Artificial Intelligence: Workshop proceedings"
-            link="/research/confidence-building-measures-for-artificial-intelligence-workshop-proceedings"
-            image="/images/research/confidence-building-measures-for-artificial-intelligence-workshop-proceedings.webp"
-            date="Aug 1, 2023"
-          />
-          <Card
-            title="Frontier AI regulation: Managing emerging risks to public safety"
-            link="/research/frontier-ai-regulation-managing-emerging-risks-to-public-safety"
-            image="/images/research/frontier-ai-regulation-managing-emerging-risks-to-public-safety.webp"
-            date="Jul 6, 2023"
           />
         </div>
       </div>
@@ -277,15 +311,20 @@ export default function page() {
           height={1500}
           className="object-cover pb-[4.5rem] md:pb-[3rem] xl:pb-[6rem] "
         />
-        <div className="mx-4 xl:mx-6 pb-[4.5rem] md:pb-[3rem] xl:pb-[6rem] xl:grid xl:grid-cols-2 border-t-[.5px] pt-[.75rem] xl:pt-[.75rem]">
-          <figure className="relative lg:pl-6">
+        <div className="mx-4 xl:mx-6 pb-[4.5rem] md:pb-[3rem] xl:pb-[6rem] flex flex-col xl:grid xl:grid-cols-2 border-t-[.5px] pt-[.75rem] xl:pt-[.75rem]">
+          <figure className="relative md:pl-6">
             <blockquote className="text-[1.75rem] leading-[110%] font-normal tracking-[-.01em] md:text-[2.25rem] xl:text-[3rem] xl:tracking-[-.02em]">
-              <p>
+              <p className="hidden md:block">
                 <span className="after:content-['”'] before:absolute before:left-0 before:content-['“']">
                   I encourage my team to keep learning. Ideas in different
                   topics or fields can often inspire new ideas and broaden the
                   potential solution space.
                 </span>
+              </p>
+              <p className="block md:hidden mt-[1.5rem]">
+                &ldquo;I encourage my team to keep learning. Ideas in different
+                topics or fields can often inspire new ideas and broaden the
+                potential solution space.&ldquo;
               </p>
               <figcaption className="mt-[1rem] xl:mt[1.5rem]">
                 <span className="block font-semibold leading-[130%] tracking-normal text-[1rem] xl:text-[1.125rem]">
@@ -297,7 +336,7 @@ export default function page() {
               </figcaption>
             </blockquote>
           </figure>
-          <div className="mt-[8px] md:mt-[10px] md:ml-4">
+          <div className="order-first md:order-last mt-[8px] md:mt-[10px] md:ml-4">
             <Image
               src="/images/careers/lillian-weng.webp"
               alt="Lillian Weng"

@@ -106,7 +106,7 @@ const FooterLinks = {
   ],
 };
 
-export default function footer() {
+export default function   footer() {
   const handleScrollToTop = () => {
     window.scrollTo({
       top: 0,
