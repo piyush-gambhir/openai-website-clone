@@ -1,4 +1,4 @@
-# Open AI Website Clone
+# OpenAI Website Clone
 
 This repository contains a clone of the OpenAI website, created for educational and practice purposes. The goal of this project is to replicate the design and functionality of the official OpenAI website to improve web development skills.
 
